@@ -6,7 +6,19 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "lint": "eslint \"**/*.{ts,tsx,js,jsx}\"",
+    "lint:fix": "eslint \"**/*.{ts,tsx,js,jsx}\" --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "jest --passWithNoTests",
+    "test:ci": "jest --runInBand --bail"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ]
   },
   "dependencies": {
     "expo": "~53.0.22",
@@ -16,8 +28,30 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@testing-library/jest-native": "5.4.3",
+    "@testing-library/react-native": "13.3.3",
+    "@types/jest": "30.0.0",
     "@types/react": "~19.0.10",
+    "@typescript-eslint/eslint-plugin": "^8.41.0",
+    "@typescript-eslint/parser": "^8.41.0",
+    "commitlint": "^19.8.1",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "husky": "^9.1.7",
+    "jest-expo": "~53.0.10",
+    "lint-staged": "^16.1.5",
+    "prettier": "3.6.2",
+    "react-test-renderer": "19.0.0",
     "typescript": "~5.8.3"
+  },
+  "overrides": {
+    "react-test-renderer": "19.0.0"
   },
   "private": true
 }
